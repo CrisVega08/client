@@ -9,7 +9,7 @@ export class ImagesPipe implements PipeTransform {
 
   transform(image: string, type: string = 'hotel'): any {
 
-    let url = `localhost:3001/${type}/image/${image}`;
+    let url = `http://localhost:3001/${type}/image/${image}`;
     if ( !image ) {
       return url + '/usuario/xxx';
     }
