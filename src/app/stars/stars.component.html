@@ -1,0 +1,5 @@
+<ng-container *ngFor="let icon of icons">
+    <ng-container *ngFor="let item of numbers">
+        <img class="icon" [ngClass]="{size:sm}" [src]="route+icon+'.svg'">
+    </ng-container>
+</ng-container>

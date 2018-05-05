@@ -1,0 +1,10 @@
+.header {
+  overflow: hidden;
+  background-color: #063a7e;
+  padding: 0.5rem;
+  margin: 0;
+}
+
+.logo {
+  max-width: 40vw;
+}

@@ -1,0 +1,9 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  margin-left: 1rem;
+}
+
+.title {
+  color: rgba(57, 119, 175, 1);
+}

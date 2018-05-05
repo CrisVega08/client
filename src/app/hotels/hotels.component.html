@@ -1,0 +1,11 @@
+<ng-container *ngFor="let hotel of data">
+    <app-card></app-card>
+    <div>
+        <img  [src]="(hotel.image | images  ) | safeImage" alt="Image">
+    </div>
+    <div class="container">
+      <span class="title">{{hotel.name}}</span>
+      <app-stars [value]="hotel.stars" [sm]="true" ></app-stars>
+      <app-stars [icons]="hotel.amenities"></app-stars>
+    </div>
+</ng-container>
