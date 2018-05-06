@@ -9,15 +9,11 @@ export class ImagesPipe implements PipeTransform {
 
   transform(image: string, type: string = 'hotel'): any {
 
-    let url = `http://localhost:3001/${type}/image/${image}`;
+    const url = `http://localhost:3001/${type}/image/${image}`;
     if ( !image ) {
       return url + '/usuario/xxx';
     }
 
-    // if ( image.indexOf('https') >= 0) {
-    //   return image;
-    // }
-  console.log(url)
     return url;
   }
 }
