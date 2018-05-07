@@ -8,7 +8,6 @@ p {
 
 .flex_container {
     display: flex;
-    flex-wrap: wrap;
     background-color: rgba(244, 244, 244, 1);
     padding: 20px;
 }
@@ -29,11 +28,6 @@ p {
     width: 100%;
 }
 
-.image {
-    width: 450px;
-    height: 285px;
-    /* overflow: hidden; */
-}
 
 .card {
     /* Add shadows to create the "card" effect */
@@ -42,6 +36,7 @@ p {
     transition: 0.3s;
     padding: 10px;
     margin: 10px;
+    /* max-height: 15rem; */
 }
 
 .wrap {
@@ -133,7 +128,15 @@ p {
 }
 
 figure {
+    max-width: 100%;
     min-width: 19rem;
+    overflow: hidden;
+    max-height: 14rem;
+}
+
+.image_ {
+    width: 100%;
+    object-fit: cover;
 }
 
 .checks {
@@ -144,5 +147,9 @@ figure {
     .flex_container,
     .row {
         flex-direction: column;
+    }
+
+    figure {
+        min-width: 0rem;
     }
 }

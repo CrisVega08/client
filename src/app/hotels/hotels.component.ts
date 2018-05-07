@@ -29,4 +29,7 @@ export class HotelsComponent implements OnInit {
     //       this.data = res;
     //     });
   }
+  valueStart(checkAction){
+    console.log(checkAction, '================');
+  }
 }

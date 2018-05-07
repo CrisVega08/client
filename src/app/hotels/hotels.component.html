@@ -7,10 +7,10 @@
         <div class="card">
             <form ngNativeValidate #f="ngForm" (ngSubmit)="searchHotels(f.value)">
                 <div class="row">
-                    <div class="col-75">
+                    <div>
                         <input type="text" name="name" [ngModel]="name" required placeholder="Ingrese el nombre del hotel">
                     </div>
-                    <div class="col-25">
+                    <div>
                         <button type="submit">Aceptar</button>
                     </div>
                 </div>
@@ -19,11 +19,11 @@
         <div class="card">
             <section>
                 <div>
-                    <input type="checkbox" name="option1" value="5,4,3,2,1," checked> Todas las estrellas<br>
+                    <input type="checkbox" (change)="valueStart(6)" name="option" value="6" checked> Todas las estrellas<br>
                 </div>
-                <div *ngFor="let star of [5,4,3,2,1]" class="">
-                    <input type="checkbox" name="'star'+star" value="star">
-                    <app-stars [value]="star" [sm]="true"></app-stars>
+                <div *ngFor="let item of [5,4,3,2,1]" class="">
+                    <input type="checkbox" name="'option'+item" (change)="valueStart(item)" value="item">
+                    <app-stars [value]="item" [sm]="true"></app-stars>
                 </div>
             </section>
         </div>
@@ -33,8 +33,8 @@
         <div class="card" *ngFor="let hotel of data">
             <div class="row">
                 <!-- <div class="fakeimg" style="flex:25">Image</div> -->
-                <figure class="margin_off">
-                    <img class="image" [src]="(hotel.image | images  ) | safeImage" alt="Image">
+                <figure class="margin_off image" style="flex:25">
+                    <img class="image_" [src]="(hotel.image | images  ) | safeImage" alt="Image">
                 </figure>
                 <div class="row column margin_off" style="flex:50; margin-left: 1.5rem;">
                     <h3 class="title margin_off">{{hotel.name}}</h3>
