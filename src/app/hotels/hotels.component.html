@@ -1,59 +1,52 @@
-<!-- <div class="row wrap">
-    <div class="card filter">
-        <span>Filtros</span>
-    </div>
-    <div class="box">
-        <div class="card" *ngFor="let hotel of data">
-            <div class="container">
-                <div>
-                    <figure class="img">
-                        <img [src]="(hotel.image | images  ) | safeImage" alt="Image">
-                    </figure>
-                </div>
-                <div class="row column left">
-                    <span class="title">{{hotel.name}}</span>
-                    <app-stars [value]="hotel.stars" [sm]="true"></app-stars>
-                    <app-stars [icons]="hotel.amenities"></app-stars>
-                </div>
-                <div class="row column center middle">
-                    <ng-container>
-                        <span>Precio por noche habitación</span>
-                        <p class="row baseline">
-                            <span>{{typeMoney}} </span>
-                            <span class="text_size">{{hotel.price.$numberDecimal}}</span>
-                        </p>
-                    </ng-container>
-                    <a class="botton">Ver hotel</a>
-                </div>
-            </div>
-        </div>
-    </div>
-</div> -->
-
 <div class="flex_container">
     <div class="side">
-        <div class="card">Filtros
+        <div class="card">
+            <h3 class="margin_off">Filtros</h3>
             <!-- <h3>Filtros</h3> -->
         </div>
-        <div class="card">Nombre del hotel</div>
-        <div class="card">Estrellas</div>
+        <div class="card">
+            <form ngNativeValidate #f="ngForm" (ngSubmit)="searchHotels(f.value)">
+                <div class="row">
+                    <div class="col-75">
+                        <input type="text" name="name" [ngModel]="name" required placeholder="Ingrese el nombre del hotel">
+                    </div>
+                    <div class="col-25">
+                        <button type="submit">Aceptar</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+        <div class="card">
+            <section>
+                <div>
+                    <input type="checkbox" name="option1" value="5,4,3,2,1," checked> Todas las estrellas<br>
+                </div>
+                <div *ngFor="let star of [5,4,3,2,1]" class="">
+                    <input type="checkbox" name="'star'+star" value="star">
+                    <app-stars [value]="star" [sm]="true"></app-stars>
+                </div>
+            </section>
+        </div>
     </div>
 
     <div class="main">
         <div class="card" *ngFor="let hotel of data">
             <div class="row">
-                <div class="fakeimg" style="flex:25">Image</div>
-                <div class="row column" style="flex:50; margin-left: 1rem;">
-                    <h3 class="title">{{hotel.name}}</h3>
-                    <app-stars [value]="hotel.stars" [sm]="true"></app-stars>
+                <!-- <div class="fakeimg" style="flex:25">Image</div> -->
+                <figure class="margin_off">
+                    <img class="image" [src]="(hotel.image | images  ) | safeImage" alt="Image">
+                </figure>
+                <div class="row column margin_off" style="flex:50; margin-left: 1.5rem;">
+                    <h3 class="title margin_off">{{hotel.name}}</h3>
+                    <app-stars [value]="hotel.stars"></app-stars>
                     <app-stars [icons]="hotel.amenities"></app-stars>
                 </div>
                 <div class="row column center middle" style="flex:25">
                     <ng-container>
-                        <span><h4>Precio por noche habitación</h4></span>
-                        <p class="">
-                            <span>{{typeMoney}} </span>
-                            <span class="text_size">{{hotel.price.$numberDecimal}}</span>
+                        <span>Precio por noche habitación</span>
+                        <p class="text_color">
+                            <span>{{typeMoney}}   </span>
+                            <span class="text_size">  {{hotel.price.$numberDecimal}}</span>
                         </p>
                     </ng-container>
                     <a class="botton">Ver hotel</a>

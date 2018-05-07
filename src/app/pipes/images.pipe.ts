@@ -11,7 +11,7 @@ export class ImagesPipe implements PipeTransform {
 
     const url = `http://localhost:3001/${type}/image/${image}`;
     if ( !image ) {
-      return url + '/usuario/xxx';
+      return url + '/assets/xxx';
     }
 
     return url;

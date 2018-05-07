@@ -2,6 +2,10 @@
     box-sizing: border-box;
 }
 
+p {
+    margin: 0;
+}
+
 .flex_container {
     display: flex;
     flex-wrap: wrap;
@@ -23,6 +27,12 @@
     background-color: #aaa;
     padding: 100px;
     width: 100%;
+}
+
+.image {
+    width: 450px;
+    height: 285px;
+    /* overflow: hidden; */
 }
 
 .card {
@@ -98,13 +108,17 @@
     color: #ffffff;
     background-color: rgba(15, 41, 116, 1);
     max-width: 20rem;
-    min-width: 10rem;
+    min-width: 16rem;
     border-radius: 6px;
+}
+
+.title {
+    color: rgba(57, 119, 175, 1);
 }
 
 .text_color {
     color: rgba(235, 137, 35, 1);
-    font-size: 8.5rem;
+    font-size: 1.8rem;
     font-weight: 400;
     margin-bottom: 1rem;
 }
@@ -112,6 +126,18 @@
 .text_size {
     font-size: 2.5rem;
     font-weight: 600;
+}
+
+.margin_off {
+    margin: 0;
+}
+
+figure {
+    min-width: 19rem;
+}
+
+.checks {
+    max-width: 10px;
 }
 
 @media screen and (max-width: 700px) {

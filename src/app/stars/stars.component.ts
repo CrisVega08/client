@@ -12,16 +12,14 @@ export class StarsComponent implements OnInit {
   @Input() sm: boolean = false;
   route = `../../assets/icons/filters/`
   numbers;
-  constructor() {
-    
-   }
+  constructor() {}
   ngOnInit() {
-    if(this.value){
-      this.route = `../../assets/icons/filters/` 
-    }else{
+    if (this.value) {
+      this.route = `../../assets/icons/filters/`;
+    } else {
       this.value = 1,
-      this.route = `../../assets/icons/amenities/`
+      this.route = `../../assets/icons/amenities/`;
     }
-    this.numbers = Array(this.value).fill(0,this.value).map((x,i)=>i);
+    this.numbers = Array(this.value).fill(0, this.value).map((x,i)=>i);
     }
 }
