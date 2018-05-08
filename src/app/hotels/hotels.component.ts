@@ -16,13 +16,20 @@ export class HotelsComponent implements OnInit {
   stars_values: Number[]=[];
   both_values: boolean =false;
   save_value: String ='';
+  customInnerWidth: Number;
   constructor(public _crud: CrudService) { }
 
   ngOnInit() {
-    // this._crud.getData().subscribe((res: any) => {
-    //   this.data = res;
-    // });
-    this.searchHotels('');
+     this.searchHotels('');
+  }
+
+  collapseCard(target: Element){
+    target.parentElement.classList.toggle('card_collapsed');
+    console.log(target.parentElement);
+  }
+
+  resize_card() {
+    this.customInnerWidth  = window.innerWidth; 
   }
 
   searchHotels(term: any) {
@@ -75,4 +82,6 @@ export class HotelsComponent implements OnInit {
     this.searchHotels('');
     
   }
+
+  
 }

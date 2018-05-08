@@ -93,7 +93,7 @@ p {
     box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
 }
 
-.botton {
+.button {
     text-decoration: none;
     text-align: center;
     padding: 10px;
@@ -108,23 +108,87 @@ p {
 
 .input_seach {
     display: flex;
-    margin-right: 1rem;
-    width: 100;
-    justify-content: flex-end
+    margin-right: 1rem; 
+    width: calc(70% - 1rem);
+    /* justify-content: flex-end */
 }
 
+.width_100 {
+    width: 100%;
+   padding-top: 0;
+}
+
+.input_seach input {
+    padding: 0.5rem;
+    width: 100%;
+}
+
+.title_filter{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-bottom: 0.5rem;
+    cursor: pointer;
+    user-select: none;
+    /* row center between middle */
+}
+
+.title_filter * {
+    pointer-events: none;
+}
+
+
+/* 
+.card_collapsed div span{
+    width : 0;
+    height: 0;
+    margin: 0.5rem 0;
+    border-left: 0.3rem solid transparent;
+    border-right: 0.3rem solid transparent;
+    border-bottom: 0.3rem solid rgba(57, 119, 175, 1);
+} */
+
 .filter {
-    max-width: 100%;
-    min-width: 0%;
+    /* width: 100%; */
+    max-width: unset;
+    min-width: 30%;
     border-radius: 0px;
     font-size: 1rem;
     border-style: none;
 }
 
+.filter button {
+    width: 100%;
+}
 .title {
     color: rgba(57, 119, 175, 1);
 }
 
+.arrow_down {
+   width : 0;
+   height: 0;
+   margin: 0.5rem 0;
+   border-left: 0.3rem solid transparent;
+   border-right: 0.3rem solid transparent;
+   border-bottom: 0.3rem solid rgba(57, 119, 175, 1);
+   /* border-top: 0.3rem solid rgba(57, 119, 175, 1); */
+}
+
+.card_collapsed form{
+    display: none;
+    
+    /* border-bottom: 0rem solid rgba(57, 119, 175, 1); */
+}
+
+.card_collapsed .arrow_down{
+    border-bottom: 0rem ;
+    border-top: 0.3rem solid rgba(57, 119, 175, 1);
+}
+
+.card_collapsed section{
+    display: none;
+
+}
 .text_color {
     color: rgba(235, 137, 35, 1);
     font-size: 1.8rem;
@@ -163,6 +227,14 @@ ng-container p {
     max-width: 11rem;
 }
 
+form {
+    width: 100%;
+}
+
+.content-filter{
+    width: 100;
+}
+
 .image_ {
     width: 100%;
     object-fit: cover;
@@ -174,9 +246,10 @@ ng-container p {
 
 .max_wh_14 {
     max-width: 11rem;
+    text-align: center;
 }
 
-@media screen and (max-width: 700px) {
+@media screen and (max-width: 600px) {
     .flex_container,
     .row {
         flex-direction: column;
@@ -187,5 +260,10 @@ ng-container p {
     }
     figure {
         min-width: 0rem;
+    }
+    .input_seach {
+        width: 100%;
+        margin-bottom: 0.5rem;
+        max-width: unset; 
     }
 }

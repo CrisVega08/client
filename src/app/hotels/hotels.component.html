@@ -4,24 +4,34 @@
             <h3 class="margin_off">Filtros</h3>
             <!-- <h3>Filtros</h3> -->
         </div>
-        <div class="card">
-            <form ngNativeValidate #f="ngForm" (ngSubmit)="searchHotels(f.value)">
-                <div class="row">
+        <div class="card" (window:resize)="resize_card()" [ngClass]="customInnerWidth && customInnerWidth<=600 ? 'card_collapsed' : ''">
+            <div class="title_filter" (click)="collapseCard($event.target)">
+                <div class="width_100">
                     <app-stars [value]=1 [sm]="true"></app-stars>
-                    <span>Nombre del Hotel</span>
-                    <app-stars [value]="1" [sm]="true"></app-stars>
+                    <span class="title">Nombre del Hotel</span>
                 </div>
+                <span class="arrow_down"></span>
+            </div>
+            <form ngNativeValidate #f="ngForm" (ngSubmit)="searchHotels(f.value)">
+                
                 <div class="row content-filter">
                     <div class="input_seach">
                         <input type="text" name="name" [(ngModel)]="name" required placeholder="Ingrese el nombre del hotel">
                     </div>
-                    <div>
-                        <button type="submit" class="botton filter">Aceptar</button>
+                    <div class="filter">
+                        <button type="submit" class="button filter">Aceptar</button>
                     </div>
                 </div>
             </form>
         </div>
         <div class="card">
+            <div class="title_filter" (click)="collapseCard($event.target)">
+                <div class="width_100">
+                    <app-stars [value]=1 [sm]="true"></app-stars>
+                    <span class="title">Estrellas</span>
+                </div>
+                <span class="arrow_down"></span>
+            </div>
             <section>
                 <div>
                     <input type="checkbox" class="allstars-checkbox" (change)="valueStart($event.target)" name="option" value="6" [checked]="all"> Todas las estrellas<br>
@@ -50,12 +60,12 @@
                 <div class="row column center middle dashed" style="flex:25">
                     <ng-container>
                         <span class="max_wh_14">Precio por noche habitación</span>
-                        <div class="text_color row center">
-                            <span>{{typeMoney}}   </span>
+                        <div class="text_color row center middle">
+                            <span>{{typeMoney}}</span>
                             <span class="text_size">  {{hotel.price.$numberDecimal}}</span>
                         </div>
                     </ng-container>
-                    <a class="botton">Ver hotel</a>
+                    <a class="button">Ver hotel</a>
                 </div>
             </div>
         </div>
