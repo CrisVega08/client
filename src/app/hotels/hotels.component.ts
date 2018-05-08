@@ -49,8 +49,8 @@ export class HotelsComponent implements OnInit {
   }
  
   checkValue(value){
-    const value2= parseInt(value)
-    return !!this.stars_values.find(e => e===value2)
+    const value_two= parseInt(value)
+    return !!this.stars_values.find(e => e===value_two)
   }
 
 

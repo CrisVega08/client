@@ -7,11 +7,16 @@
         <div class="card">
             <form ngNativeValidate #f="ngForm" (ngSubmit)="searchHotels(f.value)">
                 <div class="row">
-                    <div>
+                    <app-stars [value]=1 [sm]="true"></app-stars>
+                    <span>Nombre del Hotel</span>
+                    <app-stars [value]="1" [sm]="true"></app-stars>
+                </div>
+                <div class="row content-filter">
+                    <div class="input_seach">
                         <input type="text" name="name" [(ngModel)]="name" required placeholder="Ingrese el nombre del hotel">
                     </div>
                     <div>
-                        <button type="submit">Aceptar</button>
+                        <button type="submit" class="botton filter">Aceptar</button>
                     </div>
                 </div>
             </form>
@@ -42,13 +47,13 @@
                     <app-stars [value]="hotel.stars"></app-stars>
                     <app-stars [icons]="hotel.amenities"></app-stars>
                 </div>
-                <div class="row column center middle" style="flex:25">
+                <div class="row column center middle dashed" style="flex:25">
                     <ng-container>
-                        <span>Precio por noche habitación</span>
-                        <p class="text_color">
+                        <span class="max_wh_14">Precio por noche habitación</span>
+                        <div class="text_color row center">
                             <span>{{typeMoney}}   </span>
                             <span class="text_size">  {{hotel.price.$numberDecimal}}</span>
-                        </p>
+                        </div>
                     </ng-container>
                     <a class="botton">Ver hotel</a>
                 </div>

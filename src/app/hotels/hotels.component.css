@@ -28,7 +28,6 @@ p {
     width: 100%;
 }
 
-
 .card {
     /* Add shadows to create the "card" effect */
     background-color: rgba(255, 255, 255, 1);
@@ -107,6 +106,21 @@ p {
     border-radius: 6px;
 }
 
+.input_seach {
+    display: flex;
+    margin-right: 1rem;
+    width: 100;
+    justify-content: flex-end
+}
+
+.filter {
+    max-width: 100%;
+    min-width: 0%;
+    border-radius: 0px;
+    font-size: 1rem;
+    border-style: none;
+}
+
 .title {
     color: rgba(57, 119, 175, 1);
 }
@@ -134,6 +148,21 @@ figure {
     max-height: 14rem;
 }
 
+div {
+    max-width: 100%;
+}
+
+div .dashed {
+    border-left-style: dashed;
+    border-width: 1px;
+    border-top-style: none;
+    border-color: gray;
+}
+
+ng-container p {
+    max-width: 11rem;
+}
+
 .image_ {
     width: 100%;
     object-fit: cover;
@@ -143,12 +172,19 @@ figure {
     max-width: 10px;
 }
 
+.max_wh_14 {
+    max-width: 11rem;
+}
+
 @media screen and (max-width: 700px) {
     .flex_container,
     .row {
         flex-direction: column;
     }
-
+    div .dashed {
+        border-left-style: none;
+        border-top-style: dashed;
+    }
     figure {
         min-width: 0rem;
     }
