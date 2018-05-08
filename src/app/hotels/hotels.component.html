@@ -19,10 +19,11 @@
         <div class="card">
             <section>
                 <div>
-                    <input type="checkbox" (change)="valueStart(6)" name="option" value="6" checked> Todas las estrellas<br>
+                    <input type="checkbox" class="allstars-checkbox" (change)="valueStart2($event.target)" name="option" value="6" checked> Todas las estrellas<br>
                 </div>
                 <div *ngFor="let item of [5,4,3,2,1]" class="">
-                    <input type="checkbox" name="'option'+item" (change)="valueStart(item)" value="item">
+                    <!-- <input type="checkbox" name="'option'+item" (change)="valueStart2($event.target)" [value]="item" [checked]="stars[item-1]"> -->
+                    <input type="checkbox" name="'option'+item" (change)="valueStart2($event.target)" [value]="item" [checked]="checkValue(item)">
                     <app-stars [value]="item" [sm]="true"></app-stars>
                 </div>
             </section>
