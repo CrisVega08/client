@@ -1,9 +1,11 @@
 .icon {
-    max-width: 30px;
+    height: 20px;
+    max-width: 20px;;
     margin-bottom: 0rem;
-    fill: yellow;
+    /* fill: yellow; */
 }
 
 .size {
+    height: 15px;
     max-width: 15px;
 }

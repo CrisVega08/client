@@ -130,11 +130,18 @@ p {
     padding-bottom: 0.5rem;
     cursor: pointer;
     user-select: none;
+    font-weight: bold;
     /* row center between middle */
 }
 
-.title_filter * {
+.title_filter *, .side_title * {
     pointer-events: none;
+}
+
+.side_title {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
 }
 
 
@@ -160,6 +167,10 @@ p {
 .filter button {
     width: 100%;
 }
+
+.filter_option{
+    visibility: visible;
+}
 .title {
     color: rgba(57, 119, 175, 1);
 }
@@ -167,16 +178,20 @@ p {
 .arrow_down {
    width : 0;
    height: 0;
-   margin: 0.5rem 0;
+   margin: 0.5rem;
    border-left: 0.3rem solid transparent;
    border-right: 0.3rem solid transparent;
    border-bottom: 0.3rem solid rgba(57, 119, 175, 1);
    /* border-top: 0.3rem solid rgba(57, 119, 175, 1); */
 }
 
+.card_collapsed .filter_option{
+    /* display: none; */
+    display: none;
+}
+
 .card_collapsed form{
     display: none;
-    /* border-bottom: 0rem solid rgba(57, 119, 175, 1); */
 }
 
 .card_collapsed .arrow_down{
@@ -186,13 +201,32 @@ p {
 
 .card_collapsed section{
     display: none;
-
 }
+
+.side_collapsed .filter_option {
+   display: none;
+}
+
+.card.side_title .arrow_down{
+    /* display: none; */
+    border-bottom: 0.3rem solid rgba(57, 119, 175, 1);
+    border-top: 0rem;
+}
+
+.card_collapsed .side_title .arrow_down{
+    border-top: 0.3rem solid rgba(57, 119, 175, 1);
+    border-bottom: 0rem;
+}
+
 .text_color {
     color: rgba(235, 137, 35, 1);
     font-size: 1.8rem;
     font-weight: 400;
     margin-bottom: 1rem;
+}
+
+.text_color span{
+    padding-right: 0.3rem;
 }
 
 .text_size {
@@ -203,6 +237,14 @@ p {
 .margin_off {
     margin: 0;
 }
+
+.paddin_colum {
+    padding-bottom: 1rem;
+}
+
+/* .allstars-checkbox span{
+    user-select: none;
+} */
 
 figure {
     max-width: 100%;
@@ -216,6 +258,7 @@ div {
 }
 
 div .dashed {
+    padding-left: 0.5rem;
     border-left-style: dashed;
     border-width: 1px;
     border-top-style: none;
@@ -256,13 +299,29 @@ form {
     div .dashed {
         border-left-style: none;
         border-top-style: dashed;
+        padding-top: 1rem;
     }
     figure {
         min-width: 0rem;
+        padding-bottom: 1rem;
     }
     .input_seach {
         width: 100%;
         margin-bottom: 0.5rem;
         max-width: unset; 
+    }
+
+    .card.side_title {
+        justify-content: center;
+        color: rgba(57, 119, 175, 1);
+        cursor: pointer;
+    }
+   
+    .max_wh_14 {
+        max-width: 19rem
+    }
+
+    .text_color {
+        min-width: 14rem
     }
 }

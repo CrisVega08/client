@@ -8,7 +8,7 @@ import { Component, OnInit, Input } from '@angular/core';
 export class StarsComponent implements OnInit {
   @Input() value: number = 0;
   @Input() icons: String[] = ['star'];
-  // @Input() color = 'black';
+  @Input() color: String = '#fb0';
   @Input() sm: boolean = false;
   route = `../../assets/icons/filters/`
   numbers;

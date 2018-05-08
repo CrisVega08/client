@@ -16,7 +16,7 @@ export class HotelsComponent implements OnInit {
   stars_values: Number[]=[];
   both_values: boolean =false;
   save_value: String ='';
-  customInnerWidth: Number;
+  customInnerWidth: Number = window.innerWidth;
   constructor(public _crud: CrudService) { }
 
   ngOnInit() {
@@ -24,8 +24,8 @@ export class HotelsComponent implements OnInit {
   }
 
   collapseCard(target: Element){
+    if(target.parentElement.classList.contains('side') && (this.customInnerWidth>600)) return
     target.parentElement.classList.toggle('card_collapsed');
-    console.log(target.parentElement);
   }
 
   resize_card() {
@@ -33,7 +33,6 @@ export class HotelsComponent implements OnInit {
   }
 
   searchHotels(term: any) {
-    console.log(this.name, 'valor name')
     let search_text = this.stars_values.toString();
     if(search_text === ''){
       search_text = '5,4,3,2,1'
@@ -67,6 +66,7 @@ export class HotelsComponent implements OnInit {
     if(value === 6){
       this.stars_values = [];
       this.all = true;
+      event.checked = true;
     }
     else {
       this.stars_values.find(e => e === value) ? this.stars_values = this.stars_values.filter(e => e !== value) : this.stars_values.push(value);
@@ -81,6 +81,13 @@ export class HotelsComponent implements OnInit {
 
     this.searchHotels('');
     
+  }
+
+  validInput(value){
+     if(!value && this.save_value){
+       this.save_value='';
+       this.searchHotels('');
+      }
   }
 
   
