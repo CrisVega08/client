@@ -18,7 +18,7 @@ export class CrudService {
   }
 
   search(term: string) {
-    return this._http.get(this.url + `/search?${term}?`)
+    return this._http.get(this.url + `/search${term}`)
                  .map( (res: any) => {
                    console.log(res);
                    return res;

@@ -8,7 +8,7 @@
             <form ngNativeValidate #f="ngForm" (ngSubmit)="searchHotels(f.value)">
                 <div class="row">
                     <div>
-                        <input type="text" name="name" [ngModel]="name" required placeholder="Ingrese el nombre del hotel">
+                        <input type="text" name="name" [(ngModel)]="name" required placeholder="Ingrese el nombre del hotel">
                     </div>
                     <div>
                         <button type="submit">Aceptar</button>
@@ -19,11 +19,11 @@
         <div class="card">
             <section>
                 <div>
-                    <input type="checkbox" class="allstars-checkbox" (change)="valueStart2($event.target)" name="option" value="6" checked> Todas las estrellas<br>
+                    <input type="checkbox" class="allstars-checkbox" (change)="valueStart($event.target)" name="option" value="6" [checked]="all"> Todas las estrellas<br>
                 </div>
                 <div *ngFor="let item of [5,4,3,2,1]" class="">
                     <!-- <input type="checkbox" name="'option'+item" (change)="valueStart2($event.target)" [value]="item" [checked]="stars[item-1]"> -->
-                    <input type="checkbox" name="'option'+item" (change)="valueStart2($event.target)" [value]="item" [checked]="checkValue(item)">
+                    <input type="checkbox" name="'option'+item" (change)="valueStart($event.target)" [value]="item" [checked]="checkValue(item)">
                     <app-stars [value]="item" [sm]="true"></app-stars>
                 </div>
             </section>

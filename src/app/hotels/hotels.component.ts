@@ -12,77 +12,67 @@ export class HotelsComponent implements OnInit {
   name: String = '';
   stars: boolean[]= [false,false,false,false,false];
   typeMoney: String = 'ARS';
-  allOptions: Boolean = true;
+  all: Boolean = true;
   stars_values: Number[]=[];
-
+  both_values: boolean =false;
+  save_value: String ='';
   constructor(public _crud: CrudService) { }
 
   ngOnInit() {
-    this._crud.getData().subscribe((res: any) => {
-      this.data = res;
-      console.log(this.data);
-    });
+    // this._crud.getData().subscribe((res: any) => {
+    //   this.data = res;
+    // });
+    this.searchHotels('');
   }
 
-  searchHotels(term: string) {
-    console.log(term);
-
-    // this._crud.search(term)
-    //     .subscribe(( res: any) => {
-    //       this.data = res;
-    //     });
-  }
-  async valueStart(event){
-    const value = Number(event.value)
-    // this.allOptions=! this.allOptions;
-    if(value === 6){
-      // console.log('sss')
-      this.stars = this.stars.map(e => false);
-      event.checked = true;
-    }else {
-      this.stars[value - 1] = !this.stars[value - 1];
-      const xxx = this.stars.findIndex(e => !e) > -1 && this.stars.findIndex(e => e) > -1;
-      // console.log(this.stars.findIndex(e => !e) > -1, this.stars.findIndex(e => e) > -1, this.stars)
-      if(xxx){
-        // console.log('www')
-        document.querySelector(".allstars-checkbox").checked = false;
-      }
-      else {
-        document.querySelector(".allstars-checkbox").checked = true;
-        setTimeout( () => {
-          this.stars = this.stars.map(e => false);
-        },0) 
-      }
-      
-      
+  searchHotels(term: any) {
+    console.log(this.name, 'valor name')
+    let search_text = this.stars_values.toString();
+    if(search_text === ''){
+      search_text = '5,4,3,2,1'
     }
-    
-    console.log(this.stars);
-    console.log(event.value);
-  }
-  
+    search_text = `?stars=${search_text}`;
+    if(term.name){
+      this.save_value = term.name;
+      search_text = `${search_text}&name=${term.name}`
+      this.both_values = true;
+    }else if(this.both_values) {
+      search_text = `${search_text}&name=${this.save_value}`
+    }
 
+    if(this.name === '') this.both_values = false;
+    
+    this._crud.search(search_text)
+        .subscribe(( res: any) => {
+          this.data = res;
+        });
+  }
+ 
   checkValue(value){
     const value2= parseInt(value)
     return !!this.stars_values.find(e => e===value2)
   }
 
-  async valueStart2(event: any){
+
+  async valueStart(event: any){
     event.checked = false;
     const value = Number(event.value)
     if(value === 6){
       this.stars_values = [];
-      event.checked = true;
+      this.all = true;
     }
     else {
       this.stars_values.find(e => e === value) ? this.stars_values = this.stars_values.filter(e => e !== value) : this.stars_values.push(value);
     }
-
+  
     if(this.stars_values.length === 5 || this.stars_values.length===0){
       this.stars_values = [];
-      document.querySelector(".allstars-checkbox").checked = true;
+      this.all = true;
     }else {
-      document.querySelector(".allstars-checkbox").checked = false;
+      this.all = false;
     }
+
+    this.searchHotels('');
+    
   }
 }
