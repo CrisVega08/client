@@ -1,0 +1,48 @@
+<div class="side" (window:resize)="resize_card()" [ngClass]="customInnerWidth && customInnerWidth<=600 ? 'card_collapsed' : ''">
+    <div class="card side_title" (click)="collapseCard($event.target)">
+        <h3 class="margin_off">{{customInnerWidth>600 ? 'Filtros': 'Filtrar'}}</h3>
+        <span class="arrow_down" *ngIf="customInnerWidth<=600"></span>
+    </div>
+    <div class="filter_option">
+            <!-- (window:resize)="resize_card()" [ngClass]="customInnerWidth && customInnerWidth<=600 ? 'card_collapsed' : ''" -->
+        <div class="card" >
+            <div class="title_filter" (click)="collapseCard($event.target)">
+                <div class="width_100">
+                    <app-stars [value]=1 [sm]="true" [icons]="['search']"></app-stars>
+                    <span class="title">Nombre del Hotel</span>
+                </div>
+                <span class="arrow_down"></span>
+            </div>
+            <form ngNativeValidate #f="ngForm" (ngSubmit)="searchHotels(f.value)">
+                
+                <div class="row content-filter">
+                    <div class="input_search">
+                        <input type="text" name="name" [(ngModel)]="name" (input)="validInput($event.target.value)" placeholder="Ingrese el nombre del hotel">
+                    </div>
+                    <div class="filter">
+                        <button type="submit" class="button filter">Aceptar</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+        <div class="card">
+            <div class="title_filter" (click)="collapseCard($event.target)">
+                <div class="width_100">
+                    <app-stars [value]=1 [sm]="true" [color]="'#0679b3'"></app-stars>
+                    <span class="title">Estrellas</span>
+                </div>
+                <span class="arrow_down"></span>
+            </div>
+            <section>
+                <div>
+                    <input type="checkbox" class="allstars-checkbox" (change)="valueStart($event.target)" name="option" value="6" [checked]="all"> <span>Todas las estrellas</span>
+                </div>
+                <div *ngFor="let item of [5,4,3,2,1]" class="row">
+                    <!-- <input type="checkbox" name="'option'+item" (change)="valueStart2($event.target)" [value]="item" [checked]="stars[item-1]"> -->
+                    <input type="checkbox" name="'option'+item" (change)="valueStart($event.target)" [value]="item" [checked]="checkValue(item)">
+                    <app-stars [value]="item" [sm]="true" ></app-stars>
+                </div>
+            </section>
+        </div>
+    </div>
+</div>

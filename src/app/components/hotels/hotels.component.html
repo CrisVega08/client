@@ -1,0 +1,29 @@
+<div class="flex_container">
+    <app-filters (exportFilters)="searchData($event)"></app-filters>
+
+    <div class="main">
+        <div class="card" *ngFor="let hotel of data">
+            <div class="row">
+                <!-- <div class="fakeimg" style="flex:25">Image</div> -->
+                <figure class="margin_off image" style="flex:25">
+                    <img class="image_" [src]="(hotel.image | images  ) | safeImage" alt="Image">
+                </figure>
+                <div class="row column margin_off " style="flex:50; margin-left: 1.5rem;">
+                    <h3 class="title margin_off">{{hotel.name}}</h3>
+                    <app-stars [value]="hotel.stars"></app-stars>
+                    <app-stars [icons]="hotel.amenities" class="paddin_colum"></app-stars>
+                </div>
+                <div class="row column center middle dashed" style="flex:25">
+                    <ng-container>
+                        <span class="max_wh_14">Precio por noche habitación</span>
+                        <div class="text_color row center middle">
+                            <span>{{typeMoney}}</span>
+                            <span class="text_size">  {{hotel.price.$numberDecimal}}</span>
+                        </div>
+                    </ng-container>
+                    <button class="button">Ver hotel</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
