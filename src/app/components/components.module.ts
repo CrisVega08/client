@@ -12,6 +12,7 @@ import { StarsComponent } from './stars/stars.component';
 import { HotelsComponent } from './hotels/hotels.component';
 
 import { CrudService } from '../services/crud.service';
+import { CardsComponent } from './cards/cards.component';
 @NgModule({
   imports: [
     CommonModule,
@@ -22,7 +23,8 @@ import { CrudService } from '../services/crud.service';
     FiltersComponent,
     HeaderComponent,
     StarsComponent,
-    HotelsComponent
+    HotelsComponent,
+    CardsComponent
   ],
   exports: [
     FiltersComponent,

@@ -9,8 +9,6 @@ import { NgForm } from '@angular/forms';
 export class HotelsComponent implements OnInit {
   data: any[];
 
-  typeMoney: String = 'ARS';
-
   constructor(private _crud: CrudService) { }
 
   ngOnInit() {
@@ -22,5 +20,4 @@ export class HotelsComponent implements OnInit {
           this.data = res;
         });
   }
-  
 }
