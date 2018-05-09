@@ -1,6 +1,6 @@
 import { Pipe, PipeTransform } from '@angular/core';
 import { DomSanitizer } from '@angular/platform-browser';
-
+import { environment } from './../../environments/environment';
 
 @Pipe({
   name: 'images'
@@ -8,12 +8,10 @@ import { DomSanitizer } from '@angular/platform-browser';
 export class ImagesPipe implements PipeTransform {
 
   transform(image: string, type: string = 'hotel'): any {
-
-    const url = `http://localhost:3001/${type}/image/${image}`;
+    const url = `${environment.url}/${type}/image/${image}`;
     if ( !image ) {
-      return url + '/assets/xxx';
+      return url + '/assets/image';
     }
-
     return url;
   }
 }

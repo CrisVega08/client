@@ -30,3 +30,60 @@ button {
 app-stars {
   user-select: none;
 }
+
+
+.margin_off {
+  margin: 0;
+}
+
+.title {
+  color: rgba(57, 119, 175, 1);
+}
+
+.wrap {
+  flex-wrap: wrap;
+}
+
+.nowrap {
+  flex-wrap: nowrap;
+}
+
+.row {
+  display: flex;
+}
+
+.center {
+  justify-content: center;
+}
+
+.left {
+  justify-content: flex-start;
+}
+
+.right {
+  justify-content: flex-end;
+}
+
+.between {
+  justify-content: space-between;
+}
+
+.around {
+  justify-content: space-around;
+}
+
+.middle {
+  align-items: center;
+}
+
+.top {
+  align-items: flex-start;
+}
+
+.baseline {
+  align-items: baseline;
+}
+
+.column {
+  flex-direction: column;
+}
