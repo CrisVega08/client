@@ -54,6 +54,7 @@ export class FiltersComponent implements OnInit {
   }
  
   checkValue(value){
+    console.log(value);
     const value_two= parseInt(value)
     return !!this.stars_values.find(e => e===value_two)
   }

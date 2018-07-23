@@ -1,6 +1,6 @@
 # AlMundo
 
-Prueba técnica de ALMUNDO cliente.
+Frontend Hoteles
 
 ## Cliente
 

@@ -1,4 +1,4 @@
-<div class="side" (window:resize)="resize_card()" [ngClass]="customInnerWidth && customInnerWidth<=600 ? 'card_collapsed' : ''">
+<div class="side" (window:resize)="resize_card()" >
     <div class="card side_title" (click)="collapseCard($event.target)">
         <h3 class="margin_off">{{customInnerWidth>600 ? 'Filtros': 'Filtrar'}}</h3>
         <span class="arrow_down" *ngIf="customInnerWidth<=600"></span>
